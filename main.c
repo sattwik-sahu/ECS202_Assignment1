@@ -32,7 +32,7 @@ int main(int argc, char const *argv[])
     printf("Running HEAP SORT %d times\n", N_RUNS);
     for (int i = 0; i < N_RUNS; i++) {
         t = clock();
-        // heapSort(x, N_RAND);
+        heapSort(x, N_RAND);
         t = clock() - t;
         double time = (double) t / CLOCKS_PER_SEC;
         fprintf(hSort, "%.3f\n", time);
@@ -46,7 +46,7 @@ int main(int argc, char const *argv[])
     printf("Running RANDOMIZED QUICK SORT %d times\n", N_RUNS);
     for (int i = 0; i < N_RUNS; i++) {
         t = clock();
-        // randomQuickSort(x, N_RAND, false);
+        randomQuickSort(x, N_RAND, false);
         t = clock() - t;
         double time = (double) t / CLOCKS_PER_SEC;
         fprintf(rQuick, "%.3f\n", time);
