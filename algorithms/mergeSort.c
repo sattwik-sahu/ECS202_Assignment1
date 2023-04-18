@@ -73,6 +73,7 @@ int *mergeSort(int *x, int size, bool reverse) {
     for (int i = 0; i < size; i++) {
         sorted[reverse? (size - 1) - i : i] = popStackNode(sortedStack)->value;
     }
+
     free(sortedStack);
     return sorted;
 }

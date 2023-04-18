@@ -40,6 +40,10 @@ Queue *randomQuickSortQueue(Queue *queue, int size) {
     if (nSmaller > 0) {
         pushQueueQueue(sortedQueue, randomQuickSortQueue(qSmaller, nSmaller));
     }
+
+    free(qSmaller);
+    free(qLarger);
+
     return sortedQueue;
 }
 

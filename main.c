@@ -9,7 +9,7 @@
 #include "./util/checkSorted.h"
 
 #define N_RAND 1000000
-#define N_RUNS 30
+#define N_RUNS 20
 
 int main(int argc, char const *argv[])
 {
@@ -39,6 +39,7 @@ int main(int argc, char const *argv[])
         total += time;
         printf(".");
     }
+    fclose(hSort);
     printf("\nDone in %.3f s.\n\n", total);
 
     // Randomized quick sort
@@ -53,6 +54,7 @@ int main(int argc, char const *argv[])
         total += time;
         printf(".");
     }
+    fclose(rQuick);
     printf("\nDone in %.3f s.\n\n", total);
 
     // Merge sort
@@ -67,7 +69,10 @@ int main(int argc, char const *argv[])
         total += time;
         printf(".");
     }
+    fclose(mSort);
     printf("\nDone in %.3f s.\n\n", total);
+
+    free(x);
 
     printf("[LOGS]\ndata/rQuick.txt\ndata/hSort.txt\ndata/mSort.txt\n");
 }
