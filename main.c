@@ -9,7 +9,7 @@
 #include "./util/checkSorted.h"
 
 #define N_RAND 1000000
-#define N_RUNS 100
+#define N_RUNS 30
 
 int main(int argc, char const *argv[])
 {
@@ -27,29 +27,29 @@ int main(int argc, char const *argv[])
     clock_t t;
     double total;
 
-    // Randomized quick sort
-    total = 0;
-    printf("Running RANDOMIZED QUICK SORT %d times\n", N_RUNS);
-    for (int i = 0; i < N_RUNS; i++) {
-        t = clock();
-        randomQuickSort(x, N_RAND, false);
-        t = clock() - t;
-        double time = (double) t / CLOCKS_PER_SEC;
-        fprintf(rQuick, "%.3f\n", time);
-        total += time;
-        printf(".");
-    }
-    printf("\nDone in %.3f s.\n\n", total);
-
     // Heap sort
     total = 0;
     printf("Running HEAP SORT %d times\n", N_RUNS);
     for (int i = 0; i < N_RUNS; i++) {
         t = clock();
-        heapSort(x, N_RAND);
+        // heapSort(x, N_RAND);
         t = clock() - t;
         double time = (double) t / CLOCKS_PER_SEC;
         fprintf(hSort, "%.3f\n", time);
+        total += time;
+        printf(".");
+    }
+    printf("\nDone in %.3f s.\n\n", total);
+
+    // Randomized quick sort
+    total = 0;
+    printf("Running RANDOMIZED QUICK SORT %d times\n", N_RUNS);
+    for (int i = 0; i < N_RUNS; i++) {
+        t = clock();
+        // randomQuickSort(x, N_RAND, false);
+        t = clock() - t;
+        double time = (double) t / CLOCKS_PER_SEC;
+        fprintf(rQuick, "%.3f\n", time);
         total += time;
         printf(".");
     }

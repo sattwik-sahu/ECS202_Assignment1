@@ -25,6 +25,8 @@ Stack *merge(Stack *x1, Stack *x2) {
         pushStackNode(mergedStack, popStackNode(tempStack));
     }
 
+    free(tempStack);
+
     return mergedStack;
 }
 
@@ -44,6 +46,9 @@ Stack *mergeSortStack(Stack *x, int size) {
         mergeSortStack(x1, s1),
         mergeSortStack(x2, size - s1)
     );
+
+    free(x1);
+    free(x2);
 
     return sortedStack;
 }
@@ -68,6 +73,7 @@ int *mergeSort(int *x, int size, bool reverse) {
     for (int i = 0; i < size; i++) {
         sorted[reverse? (size - 1) - i : i] = popStackNode(sortedStack)->value;
     }
+    free(sortedStack);
     return sorted;
 }
 
